@@ -1,0 +1,48 @@
+.header-bg-container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    align-items: center;
+    height: 10vh;
+    width: 100vw;
+    color: white;
+    background-color: #181818;
+}
+
+/* Responsive Design */
+
+/* Mobile View */
+@media (max-width: 600px) {
+    .header-bg-container {
+        height: 12vh; /* Increase height for better spacing on small screens */
+        padding: 8px; /* Adjust padding for small screens */
+    }
+
+    .header-bg-container h1 {
+        font-size: 18px; /* Smaller font size for mobile view */
+    }
+}
+
+/* Tablet View */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .header-bg-container {
+        height: 10vh;
+        padding: 10px; /* Maintain original padding */
+    }
+
+    .header-bg-container h1 {
+        font-size: 22px; /* Adjust font size for tablet view */
+    }
+}
+
+/* Large and Extra-Large Screens */
+@media (min-width: 1025px) {
+    .header-bg-container {
+        height: 10vh; /* Maintain height */
+        padding: 15px; /* Increase padding for larger screens */
+    }
+
+    .header-bg-container h1 {
+        font-size: 24px; /* Larger font size for desktop view */
+    }
+}

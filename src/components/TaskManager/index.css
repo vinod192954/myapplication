@@ -1,0 +1,40 @@
+.taskmanager-bg-container {
+    height: auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #3c3c3c;
+    background-size: cover;
+    color: white; /* Added for better text visibility */
+}
+
+/* Header styling */
+.header {
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for Dashboard and ProjectManager */
+.dashboard-projectmanager-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 6px;
+    height: auto;
+    min-height: 100vh;
+    flex-wrap: wrap; /* Added to handle overflow and responsiveness */
+}
+
+/* Ensure proper spacing and responsiveness */
+@media (max-width: 1024px) {
+    .dashboard-projectmanager-container {
+        flex-direction: column;
+    }
+
+    .dashboard-projectmanager-container > * {
+        width: 100%;
+        margin-bottom: 10px; /* Add space between components on smaller screens */
+    }
+}

@@ -1,0 +1,50 @@
+.taskheading {
+    color: white;
+    font-size: 24px; /* Increase font size for better readability */
+}
+
+.project-bg-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.project-view-list {
+    list-style-type: none;
+    color: white;
+    border: 1px solid white;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    border-radius: 6px; /* Added border-radius for rounded corners */
+    background-color: #2c2c2c; /* Added background color for better visibility */
+}
+
+.project-view-list h1 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.project-view-list p {
+    margin: 0;
+    padding-left: 10px;
+}
+
+.trash {
+    background-color: transparent;
+    border: none; /* Remove default border */
+    margin-left: 10px;
+    cursor: pointer; /* Add cursor pointer for better UX */
+}
+
+.loader {
+    color: white;
+    font-size: 18px; /* Increase font size for visibility */
+    text-align: center;
+    margin: 20px 0;
+}

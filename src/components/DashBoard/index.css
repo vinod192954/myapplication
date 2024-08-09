@@ -1,0 +1,99 @@
+/* Base Styles */
+.profile-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.name-role-section {
+    color: white;
+}
+
+.img-name-role-bg-container {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    background-color: #181818;
+    border-radius: 6px;
+    align-items: center;
+}
+
+.dashboard {
+    width: 25%;
+    height: 100%;
+    background-color: #3c3c3c;
+    border: 1px solid #c7c4c7;
+    padding: 5px;
+}
+
+/* Responsive Design */
+
+/* Mobile View */
+@media (max-width: 600px) {
+    .dashboard {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .img-name-role-bg-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .name-role-section p {
+        font-size: 14px;
+    }
+}
+
+/* Tablet View */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .dashboard {
+        width: 50%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .img-name-role-bg-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .profile-img {
+        height: 45px;
+        width: 45px;
+    }
+
+    .name-role-section p {
+        font-size: 16px;
+    }
+}
+
+/* Large and Extra-Large Screens */
+@media (min-width: 1025px) {
+    .dashboard {
+        width: 25%;
+        height: 100%;
+        padding: 20px;
+    }
+
+    .img-name-role-bg-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .profile-img {
+        height: 50px;
+        width: 50px;
+    }
+
+    .name-role-section p {
+        font-size: 18px;
+    }
+}

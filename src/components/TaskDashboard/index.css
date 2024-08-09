@@ -1,0 +1,102 @@
+.taskdashboard-bg-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    border-radius: 6px;
+    margin: 10px;
+    background-color: #2c2c2c; /* Added background color for better contrast */
+    padding: 10px; /* Added padding */
+    width: 100%; /* Adjust width to be responsive */
+}
+
+/* Heading styling */
+.task-heading {
+    color: #ffffff;
+    font-family: serif;
+    margin-bottom: 15px; /* Added margin-bottom for spacing */
+    font-size: 24px; /* Increased font size for better readability */
+}
+
+/* Container for project description and add section */
+.project-description-add-section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form styling */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    font-family: "Roboto", sans-serif; /* Added fallback font */
+    width: 100%; /* Ensure full width */
+}
+
+/* Input styling */
+.label-section {
+    padding: 10px;
+    width: 100%; /* Make input field full width */
+    max-width: 500px; /* Limit maximum width for large screens */
+}
+
+/* Textarea styling */
+.label-textarea-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    width: 100%; /* Make textarea full width */
+    max-width: 500px; /* Limit maximum width */
+}
+
+/* Button styling */
+.task-button {
+    align-self: flex-end;
+    padding: 10px 20px; /* Adjusted padding */
+    background-color: #23a8f2; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px; /* Increased font size for readability */
+    margin-top: 15px; /* Margin top for spacing */
+}
+
+.task-button:hover {
+    background-color: #1a8bd4; /* Darker shade on hover */
+}
+
+/* Responsive Design */
+
+/* Mobile View */
+@media (max-width: 600px) {
+    .taskdashboard-bg-container {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    .form-section {
+        width: 100%;
+    }
+
+    .label-section, .label-textarea-section {
+        width: 100%;
+    }
+}
+
+/* Tablet View */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .taskdashboard-bg-container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .form-section {
+        width: 90%;
+    }
+
+    .label-section, .label-textarea-section {
+        width: 90%;
+    }
+}

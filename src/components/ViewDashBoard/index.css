@@ -1,0 +1,41 @@
+.viewdashboard-bg-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border: 1px solid white;
+    border-radius: 6px;
+    height: 80%;
+    padding: 10px; /* Added padding for better spacing */
+    background-color: #2c2c2c; /* Added background color for better contrast */
+}
+
+.view-sections {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style-type: none; /* Removed list-style-type from individual items */
+}
+
+.view-sections li {
+    margin: 10px 0; /* Added margin to separate list items */
+}
+
+.btn {
+    display: block; /* Ensure button takes full width */
+    text-align: center;
+    background-color: #3a3a3a; /* Background color for buttons */
+    border: 1px solid white;
+    border-radius: 6px;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from links */
+    font-size: 16px; /* Increase font size */
+}
+
+.btn:hover {
+    background-color: #575757; /* Darker shade on hover */
+}
