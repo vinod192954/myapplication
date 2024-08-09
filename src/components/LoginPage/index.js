@@ -20,7 +20,7 @@ class LoginPage extends Component {
     
         return (
             <div className="login-bg-container">
-                <h3>Login  Page</h3>
+                <h3>Login page</h3>
                 <form className='form-section'>
                     <div className='user-section'>
                         <label htmlFor="user">Username</label>
