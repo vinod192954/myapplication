@@ -5,7 +5,7 @@ import './index.css'
 
 
 class LoginPage extends Component {
-    state = {username:"", password:"",error_message:""}
+    state = {username:"", password:"",error:""}
 
     onChangeuserName =(event) =>{
         this.setState({username:event.target.value})
@@ -22,8 +22,8 @@ class LoginPage extends Component {
     }
 
     onSubmitUserDetails=async(event)=>{
-        const {username,password,error_message} = this.state
         event.preventDefault()
+        const {username,password} = this.state
         const url ="https://taskmanagerbackend-ei4s.onrender.com/login" 
         const userDetails={
             username,
@@ -36,38 +36,48 @@ class LoginPage extends Component {
             },
             body:JSON.stringify(userDetails)
         }
-        const response = await fetch(url,options)
-       const data = await response.json()
-       if (response.ok===true){
-            const {jwtToken} = data 
-            this.onLogToDashboard(jwtToken)
-       }
-       else{
-            this.setState({error_message:"user Details not existed"})
-       }
+        try {
+            const response = await fetch(url, options);
+            const data = await response.json();
+            if (response.ok) {
+              const { jwtToken } = data;
+              this.onLogToDashboard(jwtToken);
+            } else {
+              this.setState({ error: 'User details not correct' });
+            }
+          } catch (error) {
+            this.setState({ error: 'User details does not exist' });
+          }
     }
      
     render() {
-        const {username,password,error_message} = this.state
+        const {username,password,error} = this.state
     
         return (
             <div className="login-bg-container">
-                <h3>Login page</h3>
-                <form className='form-section' onSubmit={this.onSubmitUserDetails}>
-                    <div className='user-section'>
-                        <label htmlFor="user">Username</label>
-                        <br />
-                        <input type="text" required placeholder="username" id="user" value={username} onChange={this.onChangeuserName}/>
+                <h3>Login Here</h3>
+                <form className='form-container' onSubmit={this.onSubmitUserDetails}>
+                    <div className='username-container'>
+                        <label className='username' htmlFor="user">Username</label>
+                        <br/>
+                        <input type="text"
+                         required placeholder="Enter Username"
+                        id="user"
+                        value={username}
+                         onChange={this.onChangeuserName}/>
                     </div>
                     <div className='password-section'>
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password" >Password</label>
                         <br/>
-                        <input id="password" required type="password" placeholder="password" value={password} onChange={this.onchangePassword}/>
+                        <input id="password" required type="password" placeholder="Enter password" value={password} onChange={this.onchangePassword}/>
                     </div>
-                    <p className='error-message'>{error_message}</p>
-                    <button type="submit" >Login</button>
+                    <p className='error-message' >{error}</p>
+                    <div className='btn-section'>
+                    <button type="submit" className='login-btn' >Login</button>
+                    </div>
+                    
                     <p className='createac-para'>
-                        New User? <Link to="/register"><button>Create Account</button></Link>
+                        <span className='create-new'>New User?</span><Link to="/register"><button className='create-acc-btn'>Create Account</button></Link>
                     </p>
                 </form>
             </div>
