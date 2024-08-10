@@ -88,10 +88,12 @@ class RegistraionPage extends Component{
                     <div className='role-section-container'>
                         <label htmlFor="role">Role</label>
                         <br/>
-                        <select id="role" value={role}  onChange={this.onChangeOptions} required>
+                        <select id="role" value={role} onChange={this.onChangeOptions} required>
+                            <option value="">Select Role</option>  {/* Optional default value */}
                             <option value="Admin">Admin</option>
                             <option value="Member">Member</option>
                         </select>
+
                     </div>
                     <button type="submit" className='submit-btn'>Register</button>
                 </form>
