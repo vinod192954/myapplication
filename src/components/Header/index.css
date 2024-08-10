@@ -3,10 +3,16 @@
     flex-direction: row;
     padding: 10px;
     align-items: center;
+    justify-content: space-between;
     height: 10vh;
     width: 100vw;
     color: white;
     background-color: #181818;
+}
+
+.button-logout{
+    background-color: transparent;
+    border-width: 0px;
 }
 
 /* Responsive Design */

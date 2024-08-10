@@ -1,11 +1,14 @@
 import './index.css';
-import { FaTrash } from 'react-icons/fa';
+import { FaTrash, FaEdit } from 'react-icons/fa'; // Import the edit icon
 import { Component } from 'react';
 
 class ViewTasksList extends Component {
-  state = { 
-    projectList: [], 
+  state = {
+    projectList: [],
     loading: true,
+    editingProject: null, // Track which project is being edited
+    editedProjectName: '',
+    editedProjectDescription: '',
   };
 
   componentDidMount() {
@@ -61,8 +64,54 @@ class ViewTasksList extends Component {
     }
   }
 
+  onClickEditTask = (project) => {
+    // Set the project to be edited and prefill the form with current values
+    this.setState({
+      editingProject: project.projectId,
+      editedProjectName: project.projectName,
+      editedProjectDescription: project.projectDescription,
+    });
+  }
+
+  onChangeEditProjectName = (event) => {
+    this.setState({ editedProjectName: event.target.value });
+  }
+
+  onChangeEditDescription = (event) => {
+    this.setState({ editedProjectDescription: event.target.value });
+  }
+
+  onClickUpdateTask = async () => {
+    const { editingProject, editedProjectName, editedProjectDescription } = this.state;
+    const apiUrl = `https://taskmanagerbackend-ei4s.onrender.com/projects/${editingProject}`;
+    const updatedProjectDetails = {
+      projectName: editedProjectName,
+      projectDescription: editedProjectDescription,
+    };
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedProjectDetails),
+      });
+
+      if (response.ok) {
+        console.log(`Task with id ${editingProject} updated successfully`);
+        this.setState({ editingProject: null });
+        this.tasksList(); // Refresh the project list after update
+      } else {
+        console.error('Error updating task:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error updating task:', error);
+    }
+  }
+
   render() {
-    const { projectList, loading } = this.state;
+    const { projectList, loading, editingProject, editedProjectName, editedProjectDescription } = this.state;
 
     return (
       <div>
@@ -79,8 +128,11 @@ class ViewTasksList extends Component {
                     <p>{eachproject.projectDescription}</p>
                   </div>
                   <div>
-                    <button className='trash' onClick={() => this.onClickDeleteTask(eachproject.projectId)}> 
+                    <button className='trash' onClick={() => this.onClickDeleteTask(eachproject.projectId)}>
                       <FaTrash />
+                    </button>
+                    <button className='edit' onClick={() => this.onClickEditTask(eachproject)}>
+                      <FaEdit />
                     </button>
                   </div>
                 </li>
@@ -89,6 +141,28 @@ class ViewTasksList extends Component {
           ) : (
             <p>Empty project</p>
           )
+        )}
+
+        {/* Popup for editing project */}
+        {editingProject && (
+          <div className="popup">
+            <div className="popup-inner">
+              <h2>Edit Project</h2>
+              <label>Project Name:</label>
+              <input
+                type="text"
+                value={editedProjectName}
+                onChange={this.onChangeEditProjectName}
+              />
+              <label>Description:</label>
+              <textarea
+                value={editedProjectDescription}
+                onChange={this.onChangeEditDescription}
+              />
+              <button onClick={this.onClickUpdateTask}>Update</button>
+              <button onClick={() => this.setState({ editingProject: null })}>Cancel</button>
+            </div>
+          </div>
         )}
       </div>
     );

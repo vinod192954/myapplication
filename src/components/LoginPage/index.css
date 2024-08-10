@@ -2,6 +2,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+.error-message{
+    color: black;
+}
 
 .login-bg-container {
     height: 100vh;
